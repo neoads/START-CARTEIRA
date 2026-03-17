@@ -39,24 +39,92 @@
     }
 
     :root {
+      /* ── BACKGROUNDS ── */
       --bg-dark: #020611;
-      --text-white: #ffffff;
-      --text-gray: #9ca3af;
+      --bg-secondary: #0f172a;
+      --bg-card-dark: linear-gradient(180deg, #0f172a 0%, #020611 100%);
+      --bg-card-light: #ffffff;
+      --bg-light: #f8fafc;
 
+      /* ── ACCENT / BRAND (AZUL) ── */
+      --accent: #3b82f6;
+      --accent-light: #60a5fa;
+      --accent-lighter: #93c5fd;
+      --accent-lightest: #dbeafe;
+      --accent-dark: #1d4ed8;
+      --accent-deep: #1e3a8a;
+      --accent-glow: rgba(147, 197, 253, 0.15);
+      --accent-glow-strong: rgba(147, 197, 253, 0.25);
+      --accent-glow-hover: rgba(147, 197, 253, 0.4);
+
+      /* ── URGÊNCIA (VERMELHO) ── */
+      --urgency: #ff0000;
+      --urgency-dark: #d90000;
+      --urgency-light: #ff1a1a;
+
+      /* ── TEXT ── */
+      --text-white: #ffffff;
+      --text-light: #e2e8f0;
+      --text-gray: #9ca3af;
+      --text-muted: #64748b;
+      --text-dark: #0f172a;
+      --text-dark-secondary: #475569;
+      --text-accent: #93c5fd;
+
+      /* ── GLASS / BORDER ── */
+      --glass-bg: rgba(255, 255, 255, 0.03);
+      --glass-bg-hover: rgba(255, 255, 255, 0.05);
+      --glass-border: rgba(255, 255, 255, 0.08);
+      --glass-border-accent: rgba(96, 165, 250, 0.2);
+      --glass-border-accent-hover: rgba(96, 165, 250, 0.4);
+      --border-light: #e2e8f0;
+
+      /* ── BUTTONS ── */
       --btn-bg-1: #dbeafe;
       --btn-bg-2: #bfdbfe;
       --btn-text: #0f172a;
+      --btn-shadow: 0 10px 30px rgba(147, 197, 253, 0.25), inset 0 2px 0 rgba(255, 255, 255, 1);
+      --btn-shadow-hover: 0 15px 40px rgba(147, 197, 253, 0.4), inset 0 2px 0 rgba(255, 255, 255, 1);
 
-      --glass-bg: rgba(255, 255, 255, 0.03);
-      --glass-border: rgba(255, 255, 255, 0.08);
-
-      --glow-blue: rgba(147, 197, 253, 0.15);
-
+      /* ── RADIUS ── */
       --radius-sm: 16px;
       --radius-md: 24px;
       --radius-lg: 32px;
       --radius-xl: 48px;
       --radius-pill: 999px;
+
+      /* ── SPACING ── */
+      --space-xs: 4px;
+      --space-sm: 8px;
+      --space-md: 16px;
+      --space-lg: 24px;
+      --space-xl: 32px;
+      --space-2xl: 48px;
+      --space-3xl: 64px;
+      --space-4xl: 80px;
+      --space-5xl: 100px;
+
+      /* ── SHADOWS ── */
+      --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.3);
+      --shadow-card-hover: 0 10px 40px rgba(0, 0, 0, 0.1);
+      --shadow-dark-float: 0 40px 100px rgba(0, 0, 0, 0.8), inset 0 2px 0 rgba(255, 255, 255, 0.05);
+      --shadow-dark-hover: 0 60px 150px rgba(30, 58, 138, 0.4);
+      --shadow-glow: 0 0 20px rgba(147, 197, 253, 0.3);
+      --shadow-light: 0 10px 30px rgba(0, 0, 0, 0.05);
+
+      /* ── MOTION ── */
+      --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      --ease-out-cubic: cubic-bezier(0.33, 1, 0.68, 1);
+      --duration-fast: 0.2s;
+      --duration-normal: 0.3s;
+      --duration-slow: 0.5s;
+      --duration-reveal: 0.7s;
+
+      /* ── LAYOUT ── */
+      --max-width: 1100px;
+      --grid-gap: 24px;
+      --grid-gap-lg: 32px;
+      --grid-gap-xl: 60px;
     }
 
     body {
@@ -92,9 +160,9 @@
     }
 
     .container {
-      max-width: 1100px;
+      max-width: var(--max-width);
       margin: 0 auto;
-      padding: 0 24px;
+      padding: 0 var(--space-lg);
       position: relative;
     }
 
@@ -117,8 +185,8 @@
 
     /* ── AVISO TOPO ── */
     .top-bar {
-      background-color: #ff0000;
-      color: #ffffff;
+      background-color: var(--urgency);
+      color: var(--text-white);
       text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
       text-align: center;
       padding: 12px;
@@ -131,15 +199,15 @@
 
     @keyframes pulseRed {
       0% {
-        background-color: #d90000;
+        background-color: var(--urgency-dark);
         box-shadow: 0 0 5px rgba(217, 0, 0, 0.5);
       }
       50% {
-        background-color: #ff1a1a;
+        background-color: var(--urgency-light);
         box-shadow: 0 0 25px rgba(255, 26, 26, 1), 0 0 45px rgba(255, 26, 26, 0.6);
       }
       100% {
-        background-color: #d90000;
+        background-color: var(--urgency-dark);
         box-shadow: 0 0 5px rgba(217, 0, 0, 0.5);
       }
     }
@@ -151,22 +219,22 @@
       justify-content: center;
       background: linear-gradient(180deg, var(--btn-bg-1) 0%, var(--btn-bg-2) 100%);
       color: var(--btn-text);
-      padding: 18px 48px;
+      padding: 18px var(--space-2xl);
       border-radius: var(--radius-pill);
       font-weight: 800;
       font-size: 16px;
       text-transform: uppercase;
       letter-spacing: 1px;
       text-decoration: none;
-      box-shadow: 0 10px 30px rgba(147, 197, 253, 0.25), inset 0 2px 0 rgba(255, 255, 255, 1);
+      box-shadow: var(--btn-shadow);
       border: 1px solid rgba(255, 255, 255, 0.6);
-      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      transition: all 0.4s var(--ease-spring);
       cursor: pointer;
     }
 
     .btn:hover {
       transform: translateY(-4px) scale(1.03);
-      box-shadow: 0 15px 40px rgba(147, 197, 253, 0.4), inset 0 2px 0 rgba(255, 255, 255, 1);
+      box-shadow: var(--btn-shadow-hover);
     }
 
     .btn-block {
@@ -191,11 +259,11 @@
       text-transform: uppercase;
       letter-spacing: 2px;
       margin-bottom: 20px;
-      color: #93c5fd;
+      color: var(--text-accent);
       background: rgba(30, 58, 138, 0.4);
-      padding: 8px 16px;
+      padding: var(--space-sm) var(--space-md);
       border-radius: var(--radius-pill);
-      border: 1px solid rgba(147, 197, 253, 0.2);
+      border: 1px solid var(--glass-border-accent);
     }
 
     .hero-content p {
@@ -213,7 +281,7 @@
       display: flex;
       align-items: center;
       font-size: 16px;
-      color: #e2e8f0;
+      color: var(--text-light);
       margin-bottom: 12px;
       font-weight: 500;
     }
@@ -221,8 +289,8 @@
     .hero-list li svg {
       width: 20px;
       height: 20px;
-      margin-right: 16px;
-      stroke: #60a5fa;
+      margin-right: var(--space-md);
+      stroke: var(--accent-light);
       fill: none;
       stroke-width: 2.5;
     }
@@ -241,18 +309,18 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      border: 1px solid rgba(96, 165, 250, 0.2);
-      box-shadow: 0 40px 100px rgba(0, 0, 0, 0.8), inset 0 2px 0 rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--glass-border-accent);
+      box-shadow: var(--shadow-dark-float);
       overflow: hidden;
       position: relative;
-      transition: transform 0.2s ease-out, box-shadow 0.3s ease;
+      transition: transform var(--duration-fast) ease-out, box-shadow var(--duration-normal) ease;
       transform-style: preserve-3d;
       will-change: transform;
     }
 
     .hero-image-placeholder:hover {
-      box-shadow: 0 60px 150px rgba(30, 58, 138, 0.4);
-      border-color: rgba(96, 165, 250, 0.4);
+      box-shadow: var(--shadow-dark-hover);
+      border-color: var(--glass-border-accent-hover);
     }
 
     .hero-image-placeholder img {
@@ -288,10 +356,10 @@
     }
 
     .white-overlap-box .subtitle {
-      color: #64748b;
+      color: var(--text-muted);
       font-size: 16px;
       max-width: 600px;
-      margin: 0 auto 48px;
+      margin: 0 auto var(--space-2xl);
     }
 
     .proof-grid {
@@ -326,7 +394,7 @@
 
     .proof-author {
       font-weight: 800;
-      color: #0f172a;
+      color: var(--text-dark);
       font-size: 16px;
       display: flex;
       align-items: center;
@@ -338,7 +406,7 @@
       height: 40px;
       border-radius: 50%;
       object-fit: cover;
-      border: 2px solid #ffffff;
+      border: 2px solid var(--text-white);
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     }
 
@@ -369,29 +437,29 @@
     }
 
     .module-card {
-      background: #ffffff;
-      border: 1px solid #e2e8f0;
+      background: var(--bg-card-light);
+      border: 1px solid var(--border-light);
       border-radius: var(--radius-md);
       display: flex;
       overflow: hidden;
       align-items: stretch;
-      transition: border-color 0.3s, transform 0.3s;
-      color: #020611;
+      transition: border-color var(--duration-normal), transform var(--duration-normal);
+      color: var(--text-dark);
     }
 
     .module-card:hover {
-      border-color: #3b82f6;
+      border-color: var(--accent);
       transform: scale(1.01);
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+      box-shadow: var(--shadow-card-hover);
     }
 
     .module-visual {
       width: 220px;
-      background: #f8fafc;
+      background: var(--bg-light);
       display: flex;
       align-items: center;
       justify-content: center;
-      border-right: 1px solid #e2e8f0;
+      border-right: 1px solid var(--border-light);
       position: relative;
       overflow: hidden;
     }
@@ -409,7 +477,7 @@
     .module-visual svg {
       width: 64px;
       height: 64px;
-      stroke: #3b82f6;
+      stroke: var(--accent);
       fill: none;
       stroke-width: 1.5;
       z-index: 2;
@@ -422,7 +490,7 @@
 
     .module-tag {
       font-size: 11px;
-      color: #3b82f6;
+      color: var(--accent);
       text-transform: uppercase;
       letter-spacing: 2px;
       font-weight: 800;
@@ -433,12 +501,12 @@
     .module-content h3 {
       font-size: 22px;
       margin-bottom: 12px;
-      color: #020611;
+      color: var(--text-dark);
     }
 
     .module-content p {
       font-size: 15px;
-      color: #475569;
+      color: var(--text-dark-secondary);
     }
 
     /* ── PÚBLICO ALVO & BÔNUS (ROUNDED GLASS CARDS) ── */
@@ -449,26 +517,26 @@
     }
 
     .glass-card {
-      background: #ffffff;
-      border: 1px solid #e2e8f0;
+      background: var(--bg-card-light);
+      border: 1px solid var(--border-light);
       border-radius: var(--radius-md);
-      padding: 40px 32px;
-      transition: all 0.3s ease;
-      color: #020611;
+      padding: 40px var(--space-xl);
+      transition: all var(--duration-normal) ease;
+      color: var(--text-dark);
     }
 
     .glass-card:hover {
-      background: #f8fafc;
-      border-color: #3b82f6;
+      background: var(--bg-light);
+      border-color: var(--accent);
       transform: translateY(-5px);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      box-shadow: var(--shadow-light);
     }
 
     .glass-icon {
       width: 56px;
       height: 56px;
-      margin-bottom: 24px;
-      background: #eff6ff;
+      margin-bottom: var(--space-lg);
+      background: var(--accent-lightest);
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -479,7 +547,7 @@
     .glass-icon svg {
       width: 28px;
       height: 28px;
-      stroke: #3b82f6;
+      stroke: var(--accent);
       fill: none;
       stroke-width: 2;
     }
@@ -487,24 +555,24 @@
     .glass-card h3 {
       font-size: 20px;
       margin-bottom: 16px;
-      color: #020611;
+      color: var(--text-dark);
     }
 
     .glass-card p {
       font-size: 15px;
-      color: #475569;
+      color: var(--text-dark-secondary);
     }
 
     /* ── OFERTA BOX (DARK HIGH-END) ── */
     .offer-container {
       max-width: 700px;
       margin: 0 auto;
-      background: linear-gradient(180deg, #0f172a 0%, #020611 100%);
-      border: 1px solid rgba(147, 197, 253, 0.2);
+      background: var(--bg-card-dark);
+      border: 1px solid var(--glass-border-accent);
       border-radius: var(--radius-lg);
-      padding: 60px 48px;
+      padding: 60px var(--space-2xl);
       text-align: center;
-      box-shadow: 0 40px 100px rgba(0, 0, 0, 0.8), inset 0 2px 0 rgba(255, 255, 255, 0.05);
+      box-shadow: var(--shadow-dark-float);
       position: relative;
     }
 
@@ -517,8 +585,8 @@
 
     .price-strike {
       font-size: 20px;
-      color: #64748b;
-      margin-bottom: 8px;
+      color: var(--text-muted);
+      margin-bottom: var(--space-sm);
       font-weight: 500;
     }
 
@@ -536,13 +604,13 @@
     .price-final sup {
       font-size: 32px;
       vertical-align: super;
-      color: #93c5fd;
-      margin-right: 8px;
+      color: var(--text-accent);
+      margin-right: var(--space-sm);
     }
 
     .price-installments {
       font-size: 18px;
-      color: #cbd5e1;
+      color: var(--text-light);
       margin-top: 12px;
       font-weight: 600;
     }
@@ -558,15 +626,15 @@
       display: flex;
       align-items: center;
       font-size: 16px;
-      margin-bottom: 16px;
-      color: #e2e8f0;
+      margin-bottom: var(--space-md);
+      color: var(--text-light);
       font-weight: 500;
     }
 
     .offer-list-check li svg {
       width: 20px;
       height: 20px;
-      stroke: #60a5fa;
+      stroke: var(--accent-light);
       margin-right: 16px;
       fill: none;
       stroke-width: 2.5;
@@ -575,18 +643,18 @@
 
     /* ── CAIXA BRANCA INFERIOR COMPLEXA (GARANTIA, AUTOR, FAQ) ── */
     .white-bottom-box {
-      background: #ffffff;
-      color: #0f172a;
+      background: var(--bg-card-light);
+      color: var(--text-dark);
       border-radius: var(--radius-xl) var(--radius-xl) 0 0;
-      padding: 100px 40px 60px;
-      margin-top: 100px;
+      padding: var(--space-5xl) 40px 60px;
+      margin-top: var(--space-5xl);
       box-shadow: 0 -20px 60px rgba(0, 0, 0, 0.5);
     }
 
     .grid-2 {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 60px;
+      gap: var(--grid-gap-xl);
       align-items: center;
       margin-bottom: 100px;
     }
@@ -599,7 +667,7 @@
     }
 
     .guarantee-content p {
-      color: #475569;
+      color: var(--text-dark-secondary);
       font-size: 16px;
       margin-bottom: 24px;
     }
@@ -620,7 +688,7 @@
     }
 
     .author-text p {
-      color: #475569;
+      color: var(--text-dark-secondary);
       margin-bottom: 20px;
       font-size: 16px;
     }
@@ -638,41 +706,41 @@
     }
 
     .faq-item {
-      background: #f8fafc;
-      border: 1px solid #e2e8f0;
+      background: var(--bg-light);
+      border: 1px solid var(--border-light);
       border-radius: var(--radius-sm);
-      margin-bottom: 16px;
+      margin-bottom: var(--space-md);
       overflow: hidden;
-      transition: all 0.3s;
+      transition: all var(--duration-normal);
     }
 
     .faq-question {
-      padding: 24px 32px;
+      padding: var(--space-lg) var(--space-xl);
       font-weight: 800;
       font-size: 16px;
       cursor: pointer;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      color: #0f172a;
+      color: var(--text-dark);
     }
 
     .faq-question svg {
       width: 24px;
       height: 24px;
-      stroke: #3b82f6;
-      transition: transform 0.3s;
+      stroke: var(--accent);
+      transition: transform var(--duration-normal);
       fill: none;
       stroke-width: 2;
     }
 
     .faq-answer {
-      color: #475569;
+      color: var(--text-dark-secondary);
       font-size: 15px;
-      padding: 0 32px;
+      padding: 0 var(--space-xl);
       max-height: 0;
       transition: all 0.4s ease;
-      background: #ffffff;
+      background: var(--bg-card-light);
     }
 
     .faq-item.open {
@@ -692,7 +760,7 @@
 
     /* ── FOOTER ── */
     footer {
-      background: #000;
+      background: var(--bg-dark);
       padding: 60px 24px;
       text-align: center;
       color: var(--text-gray);
@@ -741,18 +809,18 @@
       bottom: 0;
       left: 0;
       right: 0;
-      background: rgba(2, 6, 17, 0.9);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border-top: 1px solid rgba(255, 255, 255, 0.05);
-      padding: 20px 24px;
+      background: rgba(2, 6, 17, 0.95);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-top: 1px solid var(--glass-border);
+      padding: 20px var(--space-lg);
       display: flex;
       justify-content: center;
       align-items: center;
       gap: 40px;
       z-index: 100;
       transform: translateY(100%);
-      transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      transition: transform 0.4s var(--ease-spring);
     }
 
     .sticky-bar.visible {
@@ -769,7 +837,7 @@
       position: fixed;
       bottom: 100px;
       right: 24px;
-      background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+      background: linear-gradient(135deg, var(--accent), var(--accent-dark));
       width: 60px;
       height: 60px;
       border-radius: 50%;
@@ -861,7 +929,7 @@
     .reveal {
       opacity: 0;
       transform: translateY(40px) scale(0.98);
-      transition: all 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.15);
+      transition: all var(--duration-reveal) var(--ease-spring);
     }
     
     .reveal.active {
