@@ -902,7 +902,7 @@
     </div>
     <div class="hero-visual">
       <div class="hero-image-placeholder">
-        <img src="CARTEIRA.png" alt="Mockup Start Cripto" style="width: 100%; height: 100%; object-fit: contain;">
+        <img src="assets/img/CARTEIRA.png" alt="Mockup Start Cripto" style="width: 100%; height: 100%; object-fit: contain;">
       </div>
     </div>
   </header>
@@ -918,7 +918,7 @@
           <p class="proof-quote">"Cara, nunca achei que fosse tão simples. Em 20 minutos já tinha feito minha primeira
             compra. Obrigado demais!"</p>
           <div class="proof-author">
-            <img src="607cd1c342ad3efcd2a198f3f3375f3b.jpg" alt="Lucas M.">
+            <img src="assets/img/607cd1c342ad3efcd2a198f3f3375f3b.jpg" alt="Lucas M.">
             Lucas M.
           </div>
         </div>
@@ -926,7 +926,7 @@
           <p class="proof-quote">"Eu sempre tive medo de cripto. Depois do Start Cripto vi que era muito mais fácil do
             que parecia. Recomendo pra todo mundo!"</p>
           <div class="proof-author">
-            <img src="45df146504957c00a7face3dce5506d0.jpg" alt="Amanda R.">
+            <img src="assets/img/45df146504957c00a7face3dce5506d0.jpg" alt="Amanda R.">
             Amanda R.
           </div>
         </div>
@@ -934,7 +934,7 @@
           <p class="proof-quote">"A carteira já pronta foi o diferencial. Não precisei pensar em nada, só copiei e
             comecei."</p>
           <div class="proof-author">
-            <img src="150301372bb195daaa22a0de90a90c9c.jpg" alt="Rafael T.">
+            <img src="assets/img/150301372bb195daaa22a0de90a90c9c.jpg" alt="Rafael T.">
             Rafael T.
           </div>
         </div>
@@ -1167,7 +1167,7 @@
       <!-- Autor -->
       <div class="grid-2">
         <div class="author-img">
-          <img src="COHIM FOTO.jpg" alt="Matheus Coim" style="width: 100%; height: 100%; border-radius: inherit; object-fit: cover;">
+          <img src="assets/img/COHIM FOTO.jpg" alt="Matheus Coim" style="width: 100%; height: 100%; border-radius: inherit; object-fit: cover;">
         </div>
         <div class="author-content author-text">
           <h3>Matheus Coim</h3>
@@ -1359,6 +1359,23 @@
         card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
       });
     }
+  </script>
+
+  <script>
+    // Proteção contra Inspeção e Cópias (Anti-Scraping Básico)
+    document.addEventListener('contextmenu', event => event.preventDefault()); // Bloqueia clique direito
+    
+    document.onkeydown = function(e) {
+      if(e.keyCode == 123) return false; // Bloqueia F12
+      if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) return false; // CTRL+SHIFT+I
+      if(e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) return false; // CTRL+SHIFT+C
+      if(e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) return false; // CTRL+SHIFT+J
+      if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) return false; // CTRL+U (Source)
+    }
+
+    // Ofuscação básica no Log
+    console.log("%c⚠️ Protegido por Synkra AIOX", "color: red; font-size: 20px; font-weight: bold;");
+    console.log("Acesso ao código fonte restrito.");
   </script>
 </body>
 
