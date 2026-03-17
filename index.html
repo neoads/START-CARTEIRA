@@ -267,17 +267,19 @@
 
     /* ── CAIXA BRANCA (PROVA SOCIAL) OVERLAPPING ── */
     .white-overlap-box {
-      background: #ffffff;
-      color: #0f172a;
+      background: var(--bg-dark);
+      color: var(--text-white);
       border-radius: var(--radius-lg);
       padding: 60px 48px;
-      box-shadow: 0 40px 80px rgba(0, 0, 0, 0.6);
+      box-shadow: 0 40px 100px rgba(0, 0, 0, 0.8);
       margin-top: -120px;
       position: relative;
       z-index: 10;
       text-align: center;
       margin-bottom: 100px;
-      background-image: linear-gradient(to bottom, #ffffff, #f8fafc);
+      border: 1px solid var(--glass-border);
+      background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, rgba(0, 0, 0, 0.2) 100%);
+      backdrop-filter: blur(20px);
     }
 
     .white-overlap-box h2 {
@@ -318,7 +320,7 @@
       font-style: italic;
       font-size: 15px;
       margin-bottom: 24px;
-      color: #334155;
+      color: var(--text-gray);
       flex-grow: 1;
     }
 
@@ -914,14 +916,14 @@
       <p class="subtitle">Depoimentos de quem já começou no cripto com nosso método.</p>
 
       <div class="proof-grid">
-        <div class="proof-item" style="padding: 0; overflow: hidden; border: none;">
-          <img src="assets/img/PROVA SOCIAL 1.jpeg" alt="Depoimento 1" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+        <div class="proof-item" style="padding: 0; overflow: hidden; border: 1px solid var(--glass-border); background: rgba(0,0,0,0.3); aspect-ratio: 4/5;">
+          <img src="assets/img/PROVA SOCIAL 1.jpeg" alt="Depoimento 1" style="width: 100%; height: 100%; object-fit: contain; display: block;">
         </div>
-        <div class="proof-item" style="padding: 0; overflow: hidden; border: none;">
-          <img src="assets/img/PROVA SOCIAL 2.jpeg" alt="Depoimento 2" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+        <div class="proof-item" style="padding: 0; overflow: hidden; border: 1px solid var(--glass-border); background: rgba(0,0,0,0.3); aspect-ratio: 4/5;">
+          <img src="assets/img/PROVA SOCIAL 2.jpeg" alt="Depoimento 2" style="width: 100%; height: 100%; object-fit: contain; display: block;">
         </div>
-        <div class="proof-item" style="padding: 0; overflow: hidden; border: none;">
-          <img src="assets/img/PROVA SOCIAL 3.jpeg" alt="Depoimento 3" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+        <div class="proof-item" style="padding: 0; overflow: hidden; border: 1px solid var(--glass-border); background: rgba(0,0,0,0.3); aspect-ratio: 4/5;">
+          <img src="assets/img/PROVA SOCIAL 3.jpeg" alt="Depoimento 3" style="width: 100%; height: 100%; object-fit: contain; display: block;">
         </div>
 
       </div>
