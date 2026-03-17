@@ -230,6 +230,26 @@
       border: 1px solid rgba(255, 255, 255, 0.6);
       transition: all 0.4s var(--ease-spring);
       cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+      transition: none;
+      animation: btnShimmer 3s ease-in-out infinite;
+    }
+
+    @keyframes btnShimmer {
+      0% { left: -100%; }
+      50% { left: 150%; }
+      100% { left: 150%; }
     }
 
     .btn:hover {
@@ -981,6 +1001,60 @@
       opacity: 1;
       transform: translateY(0) scale(1);
     }
+
+    /* ── BORDER BEAM (removido conforme solicitado) ── */
+    .hero-list li svg, .offer-list-check li svg {
+      background: rgba(96, 165, 250, 0.15);
+      border-radius: 50%;
+      padding: 3px;
+      box-shadow: 0 0 10px rgba(96, 165, 250, 0.2);
+    }
+
+    /* ── TYPEWRITER CURSOR ── */
+    .typewriter-text {
+      color: var(--accent-light);
+      position: relative;
+    }
+
+    .typewriter-text::after {
+      content: '|';
+      animation: blink 0.7s infinite;
+      color: var(--accent-light);
+      font-weight: 300;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    /* ── GARANTIA CENTRALIZADA ── */
+    .guarantee-centered {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 100px;
+    }
+
+    .guarantee-shield {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 32px;
+      background: rgba(59, 130, 246, 0.1);
+      border: 1px solid var(--glass-border-accent);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .guarantee-shield svg {
+      width: 40px;
+      height: 40px;
+      stroke: var(--accent-light);
+      fill: none;
+      stroke-width: 1.5;
+      filter: drop-shadow(0 0 10px rgba(96, 165, 250, 0.4));
+    }
   </style>
 </head>
 
@@ -995,20 +1069,24 @@
   <!-- HERO SECTION -->
   <header class="hero container">
     <div class="hero-content">
-      <h1>Faça seu dinheiro render em cripto nos próximos 30 minutos.</h1>
+      <h1>Faça seu dinheiro render em cripto nos próximos <span class="typewriter-text" id="typewriterMinutes">40 minutos</span>.</h1>
       <p>Receba minha carteira pessoal pra copiar e colar e comece a investir hoje por apenas R$ 9,90.</p>
 
       <ul class="hero-list">
         <li><svg viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10" opacity="0.2" fill="currentColor" stroke="none"/>
             <path d="M20 6L9 17l-5-5" />
           </svg> Acesso a todo o treinamento completo</li>
         <li><svg viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10" opacity="0.2" fill="currentColor" stroke="none"/>
             <path d="M20 6L9 17l-5-5" />
           </svg> Minha carteira cripto pessoal pra copiar</li>
         <li><svg viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10" opacity="0.2" fill="currentColor" stroke="none"/>
             <path d="M20 6L9 17l-5-5" />
           </svg> Do zero ao primeiro investimento em 30 min</li>
         <li><svg viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10" opacity="0.2" fill="currentColor" stroke="none"/>
             <path d="M20 6L9 17l-5-5" />
           </svg> Bônus exclusivos inclusos</li>
       </ul>
@@ -1054,6 +1132,8 @@
         <div class="glass-icon"><svg viewBox="0 0 24 24">
             <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
             <path d="M7 11V7a5 5 0 0110 0v4" />
+            <circle cx="12" cy="16" r="1" />
+            <line x1="12" y1="17" x2="12" y2="19" />
           </svg></div>
         <h3>Para quem é completamente iniciante</h3>
         <p>Nunca comprou uma criptomoeda e não faz ideia de por onde começar. Aqui você sai do zero em 30 minutos.</p>
@@ -1061,14 +1141,20 @@
       <div class="glass-card">
         <div class="glass-icon"><svg viewBox="0 0 24 24">
             <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+            <line x1="7" y1="7" x2="10" y2="10" opacity="0.4" />
+            <line x1="14" y1="14" x2="17" y2="17" opacity="0.4" />
+            <circle cx="8" cy="18" r="1" opacity="0.3" />
+            <circle cx="18" cy="6" r="1" opacity="0.3" />
           </svg></div>
         <h3>Para quem está cansado de ver os outros ganhando</h3>
         <p>Todo mundo falando de cripto e você ainda de fora. Chegou a hora de parar de assistir e começar a agir.</p>
       </div>
       <div class="glass-card">
         <div class="glass-icon"><svg viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10" />
             <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
             <polyline points="22 4 12 14.01 9 11.01" />
+            <circle cx="12" cy="12" r="3" opacity="0.15" fill="currentColor" stroke="none" />
           </svg></div>
         <h3>Para quem quer aprender sem complicação</h3>
         <p>Nada de termos técnicos confusos ou aulas de 10 horas. O método é direto, simples e prático.</p>
@@ -1077,6 +1163,8 @@
         <div class="glass-icon"><svg viewBox="0 0 24 24">
             <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
             <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+            <line x1="6" y1="12" x2="18" y2="12" opacity="0.3" />
+            <circle cx="12" cy="14" r="1.5" opacity="0.3" fill="currentColor" stroke="none" />
           </svg></div>
         <h3>Para quem quer uma renda extra</h3>
         <p>O mercado cripto funciona 24h. Aprenda a aproveitar oportunidades pra gerar uma renda a mais no seu dia a
@@ -1085,6 +1173,8 @@
       <div class="glass-card">
         <div class="glass-icon"><svg viewBox="0 0 24 24">
             <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+            <path d="M9 12l2 2 4-4" />
+            <circle cx="12" cy="8" r="0.5" opacity="0.3" fill="currentColor" stroke="none" />
           </svg></div>
         <h3>Para quem quer proteger o dinheiro</h3>
         <p>Com a inflação corroendo o real, cripto é uma forma inteligente de diversificar e proteger o seu patrimônio.
@@ -1247,21 +1337,18 @@
   <div class="white-bottom-box">
     <div class="container">
 
-      <!-- Garantia -->
-      <div class="grid-2">
-        <div style="text-align: center;">
-          <h2 style="font-size: 100px; color: #3b82f6; line-height: 1;">90</h2>
-          <span style="font-weight: 800; font-size: 24px; display: block; color: #0f172a;">DIAS DE GARANTIA</span>
+      <!-- Garantia Centralizada -->
+      <div class="guarantee-centered">
+        <div class="guarantee-shield">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+            <path d="M9 12l2 2 4-4" />
+          </svg>
         </div>
-        <div class="guarantee-content">
-          <div class="hero-tag" style="background:#f1f5f9; color:#3b82f6; border-color:#cbd5e1; margin-bottom:16px;">90
-            dias</div>
-          <h3>Garantia de 90 dias.</h3>
-          <p>Garanta seu acesso, assista ao treinamento e aplique o que aprender. Se em 90 dias você não recuperar o
-            valor investido no Start Cripto, devolvemos 100% do seu dinheiro. Sem perguntas, sem burocracia. O risco é
-            todo nosso.</p>
-          <a href="#oferta" class="btn btn-block" style="text-align:center;">QUERO COMEÇAR SEM RISCO</a>
-        </div>
+        <h3 style="font-size: 36px; margin-bottom: 20px; font-weight: 800;">Garantia de 90 dias.</h3>
+        <p style="color: var(--text-gray); font-size: 17px; line-height: 1.8; margin-bottom: 32px;">Garanta seu acesso, assista ao treinamento e aplique o que aprender. Se em 90 dias você não recuperar o
+          valor investido no Start Cripto, devolvemos 100% do seu dinheiro. Sem perguntas, sem burocracia.</p>
+        <a href="#oferta" class="btn btn-block" style="text-align:center; max-width: 440px; margin: 0 auto;">QUERO COMEÇAR SEM RISCO</a>
       </div>
 
       <!-- Autor -->
@@ -1433,6 +1520,46 @@
     }, observerOptions);
 
     elementsToReveal.forEach(el => revealObserver.observe(el));
+
+    // Typewriter Effect - Hero
+    const typewriterEl = document.getElementById('typewriterMinutes');
+    if (typewriterEl) {
+      const words = ['40 minutos', '35 minutos', '30 minutos'];
+      let wordIndex = 0;
+      let charIndex = words[0].length;
+      let isDeleting = false;
+      let currentWord = words[0];
+
+      function typewriter() {
+        if (isDeleting) {
+          typewriterEl.textContent = currentWord.substring(0, charIndex);
+          charIndex--;
+          if (charIndex < 0) {
+            isDeleting = false;
+            wordIndex = (wordIndex + 1) % words.length;
+            currentWord = words[wordIndex];
+            charIndex = 0;
+            setTimeout(typewriter, 400);
+            return;
+          }
+          setTimeout(typewriter, 30);
+        } else {
+          typewriterEl.textContent = currentWord.substring(0, charIndex + 1);
+          charIndex++;
+          if (charIndex >= currentWord.length) {
+            isDeleting = true;
+            setTimeout(typewriter, 1300);
+            return;
+          }
+          setTimeout(typewriter, 50);
+        }
+      }
+
+      setTimeout(() => {
+        isDeleting = true;
+        typewriter();
+      }, 1500);
+    }
   </script>
 
   <script>
