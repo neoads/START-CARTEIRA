@@ -1069,12 +1069,24 @@
         width: 90%;
         max-width: 250px;
         margin-left: 0;
-        margin-bottom: -10px; /* Encostar um pouco mais no texto do mobile */
+        margin-bottom: 0; /* Sem sobreposição por padrão */
       }
 
       .module-content {
         padding: 30px 20px;
         text-align: center;
+      }
+
+      /* APENAS MÓDULO 2 FAZ SOBREPOSIÇÃO DA TAG */
+      .module-card-2 .module-visual img {
+        margin-bottom: -20px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .module-card-2 .module-tag {
+        position: relative;
+        z-index: 2; /* Texto (MÓDULO 2) por cima do Macbook */
       }
     }
   </style>
@@ -1222,7 +1234,7 @@
             lucrando — sem enrolação e sem termos difíceis.</p>
         </div>
       </div>
-      <div class="module-card">
+      <div class="module-card module-card-2">
         <div class="module-visual">
           <img src="assets/img/MODUILO 2.png" alt="Módulo 2 - Primeira compra" loading="lazy">
         </div>
