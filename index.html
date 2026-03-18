@@ -492,34 +492,31 @@
     }
 
     .module-visual {
-      width: 220px;
-      background: rgba(59, 130, 246, 0.06);
+      width: 180px;
+      min-height: 160px;
+      flex-shrink: 0;
       display: flex;
       align-items: center;
       justify-content: center;
       border-right: 1px solid var(--glass-border);
       position: relative;
       overflow: hidden;
+      background: rgba(59, 130, 246, 0.05);
     }
 
-    .module-visual::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), transparent);
+    .module-visual img {
+      width: 100%;
+      height: 100%;
+      min-height: 160px;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      border-radius: 0;
+      transition: transform 0.5s ease;
     }
 
-    .module-visual svg {
-      width: 64px;
-      height: 64px;
-      stroke: var(--accent-light);
-      fill: none;
-      stroke-width: 1.5;
-      z-index: 2;
-      filter: drop-shadow(0 0 8px rgba(96, 165, 250, 0.3));
+    .module-card:hover .module-visual img {
+      transform: scale(1.05);
     }
 
     .module-content {
@@ -1055,6 +1052,30 @@
       stroke-width: 1.5;
       filter: drop-shadow(0 0 10px rgba(96, 165, 250, 0.4));
     }
+
+    /* ── MÓDULOS RESPONSIVO MOBILE ── */
+    @media (max-width: 600px) {
+      .module-card {
+        flex-direction: column;
+      }
+
+      .module-visual {
+        width: 100%;
+        min-height: 180px;
+        border-right: none;
+        border-bottom: 1px solid var(--glass-border);
+      }
+
+      .module-visual img {
+        min-height: 180px;
+        height: 180px;
+        object-position: top center;
+      }
+
+      .module-content {
+        padding: 24px 20px;
+      }
+    }
   </style>
 </head>
 
@@ -1190,10 +1211,9 @@
 
     <div class="modules-list">
       <div class="module-card">
-        <div class="module-visual"><svg viewBox="0 0 24 24">
-            <line x1="12" y1="2" x2="12" y2="22" />
-            <line x1="2" y1="12" x2="22" y2="12" />
-          </svg></div>
+        <div class="module-visual">
+          <img src="assets/img/MODULO 1.png" alt="Módulo 1 - O que é cripto" loading="lazy">
+        </div>
         <div class="module-content">
           <span class="module-tag">Módulo 1</span>
           <h3>O que é cripto e por que você precisa entrar agora</h3>
@@ -1202,10 +1222,9 @@
         </div>
       </div>
       <div class="module-card">
-        <div class="module-visual"><svg viewBox="0 0 24 24">
-            <circle cx="12" cy="12" r="10" />
-            <polyline points="12 6 12 12 16 14" />
-          </svg></div>
+        <div class="module-visual">
+          <img src="assets/img/MODUILO 2.png" alt="Módulo 2 - Primeira compra" loading="lazy">
+        </div>
         <div class="module-content">
           <span class="module-tag">Módulo 2</span>
           <h3>Na prática: sua primeira compra em 30 minutos</h3>
@@ -1214,11 +1233,9 @@
         </div>
       </div>
       <div class="module-card">
-        <div class="module-visual"><svg viewBox="0 0 24 24">
-            <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
-            <line x1="8" y1="21" x2="16" y2="21" />
-            <line x1="12" y1="17" x2="12" y2="21" />
-          </svg></div>
+        <div class="module-visual">
+          <img src="assets/img/MODULO 3.png" alt="Módulo 3 - Carteira" loading="lazy">
+        </div>
         <div class="module-content">
           <span class="module-tag">Módulo 3</span>
           <h3>A Carteira que eu uso pessoalmente</h3>
@@ -1227,10 +1244,9 @@
         </div>
       </div>
       <div class="module-card">
-        <div class="module-visual"><svg viewBox="0 0 24 24">
-            <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
-            <polyline points="17 6 23 6 23 12" />
-          </svg></div>
+        <div class="module-visual">
+          <img src="assets/img/MODULO 4.png" alt="Módulo 4 - Ganhar dinheiro" loading="lazy">
+        </div>
         <div class="module-content">
           <span class="module-tag">Módulo 4</span>
           <h3>Como ganhar dinheiro de verdade com cripto</h3>
