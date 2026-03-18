@@ -476,8 +476,7 @@
       border: 1px solid var(--glass-border);
       border-radius: var(--radius-md);
       display: flex;
-      overflow: hidden;
-      align-items: stretch;
+      align-items: center;
       transition: all var(--duration-normal) ease;
       color: var(--text-white);
       backdrop-filter: blur(12px);
@@ -492,27 +491,26 @@
     }
 
     .module-visual {
-      width: 180px;
-      min-height: 160px;
+      width: 250px;
       flex-shrink: 0;
       display: flex;
       align-items: center;
       justify-content: center;
-      border-right: 1px solid var(--glass-border);
       position: relative;
-      overflow: hidden;
-      background: rgba(59, 130, 246, 0.05);
+      padding: 0 20px;
     }
 
     .module-visual img {
-      width: 100%;
-      height: 100%;
-      min-height: 160px;
-      object-fit: cover;
+      width: 120%; /* Para dar a impressão de ocupar mais espaço solto */
+      height: auto;
+      max-height: 280px; /* Para imagens verticais de celular */
+      object-fit: contain;
       object-position: center;
       display: block;
       border-radius: 0;
       transition: transform 0.5s ease;
+      filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.4)); /* Sombra bonita pra destacar a imagem */
+      margin-left: -20px; /* Avança um pouco pra fora se o tamanho permitir */
     }
 
     .module-card:hover .module-visual img {
@@ -520,7 +518,7 @@
     }
 
     .module-content {
-      padding: 40px;
+      padding: 40px 40px 40px 20px;
       flex: 1;
     }
 
@@ -1057,23 +1055,26 @@
     @media (max-width: 600px) {
       .module-card {
         flex-direction: column;
+        align-items: center;
       }
 
       .module-visual {
         width: 100%;
-        min-height: 180px;
+        min-height: auto;
+        padding: 30px 20px 0;
         border-right: none;
-        border-bottom: 1px solid var(--glass-border);
       }
 
       .module-visual img {
-        min-height: 180px;
-        height: 180px;
-        object-position: top center;
+        width: 90%;
+        max-width: 250px;
+        margin-left: 0;
+        margin-bottom: -10px; /* Encostar um pouco mais no texto do mobile */
       }
 
       .module-content {
-        padding: 24px 20px;
+        padding: 30px 20px;
+        text-align: center;
       }
     }
   </style>
