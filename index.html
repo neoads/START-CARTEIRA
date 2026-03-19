@@ -270,14 +270,11 @@
 
     .hero {
       position: relative;
-      padding: 100px 0 160px;
-      display: flex;
-      flex-direction: column;
+      padding: 100px 0 180px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
       align-items: center;
-      text-align: center;
-      max-width: 900px;
-      margin: 0 auto;
-      gap: 40px;
+      gap: 60px;
     }
 
     .hero-content h1 {
@@ -288,8 +285,6 @@
       list-style: none;
       margin-top: 32px;
       margin-bottom: 0;
-      display: inline-block;
-      text-align: left;
     }
 
     /* Hero Background */
@@ -985,11 +980,19 @@
       }
 
       .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
         padding: 300px 0 60px;
+        gap: 40px;
       }
 
       .hero-content h1 {
         min-height: auto;
+      }
+
+      .hero-list {
+        display: inline-block;
+        text-align: left;
       }
 
             .hero-image-placeholder {
