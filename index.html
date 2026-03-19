@@ -509,6 +509,27 @@
       z-index: -1;
     }
 
+    .bg-target-audience {
+      background-image: url('assets/img/a.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: scroll;
+      position: relative;
+    }
+
+    .bg-target-audience::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: linear-gradient(180deg, rgba(2, 6, 17, 1) 0%, rgba(2, 6, 17, 0.6) 30%, rgba(2, 6, 17, 0.6) 70%, rgba(2, 6, 17, 1) 100%);
+      z-index: 1;
+    }
+
+    .bg-target-audience > .container {
+      position: relative;
+      z-index: 2;
+    }
+
     /* ── CARDS DE MÓDULOS (GLASSMORPHISM DARK) ── */
     .modules-list {
       display: flex;
@@ -1250,10 +1271,11 @@
   </div>
 
   <!-- PARA QUEM É -->
-  <section class="dark-section container">
-    <h2 class="section-title">Para quem é o Start Cripto?</h2>
-    <p class="section-subtitle">Se você se encaixa em pelo menos uma dessas situações, esse treinamento foi feito pra
-      você.</p>
+  <section class="dark-section bg-target-audience">
+    <div class="container">
+      <h2 class="section-title">Para quem é o Start Cripto?</h2>
+      <p class="section-subtitle">Se você se encaixa em pelo menos uma dessas situações, esse treinamento foi feito pra
+        você.</p>
 
     <div class="cards-grid">
       <div class="glass-card">
@@ -1315,7 +1337,7 @@
     <div class="modules-list">
       <div class="module-card">
         <div class="module-visual">
-          <img src="assets/img/MODULO 1.png" alt="Módulo 1 - O que é cripto" loading="lazy">
+          <img src="assets/img/BITCOIN.jpg" alt="Módulo 1 - O que é cripto" loading="lazy">
         </div>
         <div class="module-content">
           <span class="module-tag">Módulo 1</span>
