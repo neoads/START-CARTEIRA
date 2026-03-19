@@ -194,7 +194,7 @@
       font-weight: 800;
       text-transform: uppercase;
       letter-spacing: 2px;
-      animation: pulseRed 3s ease-in-out infinite;
+      /* animation removida */
     }
 
     @keyframes pulseRed {
@@ -243,7 +243,7 @@
       height: 100%;
       background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
       transition: none;
-      animation: btnShimmer 3s ease-in-out infinite;
+      animation: btnShimmer 4.5s ease-in-out infinite;
     }
 
     @keyframes btnShimmer {
@@ -569,25 +569,39 @@
     }
 
     .glass-icon {
-      width: 56px;
-      height: 56px;
+      width: 60px;
+      height: 60px;
       margin-bottom: var(--space-lg);
-      background: rgba(59, 130, 246, 0.12);
-      border: 1px solid rgba(96, 165, 250, 0.15);
+      background: linear-gradient(135deg, rgba(8,18,34, 1) 0%, rgba(13,32,60, 1) 100%);
+      box-shadow: inset 0 0 0 1px rgba(96, 165, 250, 0.3), 0 10px 20px -5px rgba(0, 0, 0, 0.5), 0 0 15px rgba(59, 130, 246, 0.3);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 24px;
+      position: relative;
+    }
+
+    .glass-icon::before {
+      content: '';
+      position: absolute;
+      inset: -2px;
+      background: linear-gradient(135deg, var(--primary-light), var(--primary-dark));
+      border-radius: 50%;
+      z-index: -1;
+      opacity: 0.5;
+      filter: blur(8px);
     }
 
     .glass-icon svg {
-      width: 28px;
-      height: 28px;
+      width: 32px;
+      height: 32px;
       stroke: var(--accent-light);
       fill: none;
-      stroke-width: 2;
-      filter: drop-shadow(0 0 6px rgba(96, 165, 250, 0.3));
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      filter: drop-shadow(0 0 6px rgba(96, 165, 250, 0.5));
     }
 
     .glass-card h3 {
@@ -1104,29 +1118,29 @@
   <!-- HERO SECTION -->
   <header class="hero container">
     <div class="hero-content">
-      <h1>Faça seu dinheiro render em cripto nos próximos <span class="typewriter-text" id="typewriterMinutes">40 minutos</span>.</h1>
-      <p>Receba minha carteira pessoal pra copiar e colar e comece a investir hoje por apenas R$ 9,90.</p>
+      <h1>Faça seu dinheiro render em cripto nos próximos <span class="typewriter-text" id="typewriterMinutes">30 minutos</span>.</h1>
+      <p>Receba minha carteira pessoal pra copiar e colar e comece a investir agora</p>
 
-      <ul class="hero-list">
-        <li><svg viewBox="0 0 24 24">
-            <circle cx="12" cy="12" r="10" opacity="0.2" fill="currentColor" stroke="none"/>
-            <path d="M20 6L9 17l-5-5" />
+      <ul class="hero-list hero-list-updated">
+        <li><svg viewBox="0 0 24 24" style="fill: none; stroke: none;">
+            <circle cx="12" cy="12" r="11" fill="var(--primary-color)" />
+            <path d="M19 7L9.5 16.5L5 12" stroke="#060c18" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
           </svg> Acesso a todo o treinamento completo</li>
-        <li><svg viewBox="0 0 24 24">
-            <circle cx="12" cy="12" r="10" opacity="0.2" fill="currentColor" stroke="none"/>
-            <path d="M20 6L9 17l-5-5" />
+        <li><svg viewBox="0 0 24 24" style="fill: none; stroke: none;">
+            <circle cx="12" cy="12" r="11" fill="var(--primary-color)" />
+            <path d="M19 7L9.5 16.5L5 12" stroke="#060c18" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
           </svg> Minha carteira cripto pessoal pra copiar</li>
-        <li><svg viewBox="0 0 24 24">
-            <circle cx="12" cy="12" r="10" opacity="0.2" fill="currentColor" stroke="none"/>
-            <path d="M20 6L9 17l-5-5" />
+        <li><svg viewBox="0 0 24 24" style="fill: none; stroke: none;">
+            <circle cx="12" cy="12" r="11" fill="var(--primary-color)" />
+            <path d="M19 7L9.5 16.5L5 12" stroke="#060c18" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
           </svg> Do zero ao primeiro investimento em 30 min</li>
-        <li><svg viewBox="0 0 24 24">
-            <circle cx="12" cy="12" r="10" opacity="0.2" fill="currentColor" stroke="none"/>
-            <path d="M20 6L9 17l-5-5" />
+        <li><svg viewBox="0 0 24 24" style="fill: none; stroke: none;">
+            <circle cx="12" cy="12" r="11" fill="var(--primary-color)" />
+            <path d="M19 7L9.5 16.5L5 12" stroke="#060c18" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
           </svg> Bônus exclusivos inclusos</li>
       </ul>
 
-      <a href="#oferta" class="btn btn-block">QUERO COMEÇAR AGORA POR R$ 9,90</a>
+      <a href="#oferta" class="btn btn-block">QUERO COMEÇAR POR R$ 9,90</a>
     </div>
     <div class="hero-visual">
       <div class="hero-image-placeholder">
@@ -1321,7 +1335,9 @@
   <!-- OFERTA FINAL -->
   <section class="dark-section container" id="oferta">
     <div class="offer-container">
-      <div class="hero-tag" style="margin-bottom: 32px">Oferta Start Cripto</div>
+      <div style="margin-bottom: 32px">
+        <img src="assets/img/LOGO START.png" alt="Start Cripto" style="display: inline-block; width: auto; height: 100px;">
+      </div>
       <h2 style="font-size: 32px; margin-bottom: 8px;">Tudo isso por apenas:</h2>
 
       <div class="price-wrap">
@@ -1357,9 +1373,8 @@
           </svg> BÔNUS — Até $250 dólares pra investir</li>
       </ul>
 
-      <a href="#" class="btn btn-block" style="max-width: 440px; margin-top: 16px;">QUERO COMEÇAR AGORA POR R$ 9,90</a>
-      <p style="font-size: 13px; font-weight: 600; color: #64748b; margin-top: 24px;">🔒 Compra segura · Acesso imediato
-        · Garantia de 90 dias</p>
+      <a href="#" class="btn btn-block" style="max-width: 440px; margin-top: 16px;">QUERO COMEÇAR POR R$ 9,90</a>
+      <p style="font-size: 13px; font-weight: 600; color: #64748b; margin-top: 24px;">🔒 Compra segura · Acesso imediato</p>
     </div>
   </section>
 
@@ -1378,7 +1393,7 @@
         <h3 style="font-size: 36px; margin-bottom: 20px; font-weight: 800;">Garantia de 90 dias.</h3>
         <p style="color: var(--text-gray); font-size: 17px; line-height: 1.8; margin-bottom: 32px;">Garanta seu acesso, assista ao treinamento e aplique o que aprender. Se em 90 dias você não recuperar o
           valor investido no Start Cripto, devolvemos 100% do seu dinheiro. Sem perguntas, sem burocracia.</p>
-        <a href="#oferta" class="btn btn-block" style="text-align:center; max-width: 440px; margin: 0 auto;">QUERO COMEÇAR SEM RISCO</a>
+        <a href="#oferta" class="btn btn-block" style="text-align:center; max-width: 440px; margin: 0 auto;">QUERO COMEÇAR POR R$ 9,90</a>
       </div>
 
       <!-- Autor -->
@@ -1495,8 +1510,8 @@
 
   <!-- STICKY BAR DEFAULT -->
   <div class="sticky-bar" id="stickyBar">
-    <div class="sticky-price">Oferta especial por tempo limitado — R$ 9,90</div>
-    <a href="#oferta" class="btn" style="padding: 14px 40px; font-size: 14px;">GARANTIR MINHA VAGA</a>
+    <div class="sticky-price">Oferta especial por tempo limitado</div>
+    <a href="#oferta" class="btn" style="padding: 14px 40px; font-size: 14px;">QUERO COMEÇAR POR R$ 9,90</a>
   </div>
 
   <!-- SUPORTE FLOAT -->
