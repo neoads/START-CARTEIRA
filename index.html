@@ -551,6 +551,27 @@
       z-index: 2;
     }
 
+    .bg-oferta {
+      background-image: url('assets/img/bg-oferta-desktop.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: scroll;
+      position: relative;
+    }
+
+    .bg-oferta::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: linear-gradient(180deg, rgba(2, 6, 17, 1) 0%, rgba(2, 6, 17, 0.3) 30%, rgba(2, 6, 17, 0.3) 70%, rgba(2, 6, 17, 1) 100%);
+      z-index: 1;
+    }
+
+    .bg-oferta > .container {
+      position: relative;
+      z-index: 2;
+    }
+
     /* ── CARDS DE MÓDULOS (GLASSMORPHISM DARK) ── */
     .modules-list {
       display: flex;
@@ -1007,6 +1028,18 @@
 
     /* ── RESPONSIVIDADE ── */
     @media (max-width: 900px) {
+      .bg-target-audience {
+        background-image: url('assets/img/bg-target-audience-mobile.jpg');
+      }
+
+      .bg-modules {
+        background-image: url('assets/img/bg-modules-mobile.jpg');
+      }
+
+      .bg-oferta {
+        background-image: url('assets/img/bg-oferta-mobile.jpg');
+      }
+
       .hero-bg-wrapper .hero-bg-desktop {
         display: none;
       }
@@ -1458,8 +1491,9 @@
   </section>
 
   <!-- OFERTA FINAL -->
-  <section class="dark-section container" id="oferta">
-    <div class="offer-container">
+  <section class="dark-section bg-oferta" id="oferta">
+    <div class="container">
+      <div class="offer-container">
       <div style="margin-bottom: 16px">
         <img src="assets/img/LOGO START.png" alt="Start Cripto" style="display: inline-block; width: auto; height: 80px;">
       </div>
@@ -1508,6 +1542,7 @@
 
       <a href="#" class="btn btn-block" style="max-width: 440px; margin-top: 16px;">QUERO COMEÇAR POR R$ 9,90</a>
       <p style="font-size: 13px; font-weight: 600; color: #64748b; margin-top: 24px;">🔒 Compra segura · Acesso imediato</p>
+    </div>
     </div>
   </section>
 
