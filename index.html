@@ -655,9 +655,15 @@
 
     /* ── PÚBLICO ALVO & BÔNUS (GLASS CARDS DARK) ── */
     .cards-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
       gap: 24px;
+    }
+
+    #bonus-cards-grid {
+      max-width: 860px;
+      margin: 0 auto;
     }
 
     .glass-card {
@@ -669,6 +675,8 @@
       color: var(--text-white);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
+      flex: 1 1 300px;
+      max-width: 400px;
     }
 
     .glass-card:hover {
@@ -1443,7 +1451,7 @@
     <p class="section-subtitle">Além de todo o treinamento, você ainda recebe esses bônus exclusivos sem pagar nada a
       mais.</p>
 
-    <div class="cards-grid">
+    <div class="cards-grid" id="bonus-cards-grid">
       <div class="glass-card">
         <div class="glass-icon"><svg viewBox="0 0 24 24">
             <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" fill="currentColor" opacity="0.15" stroke="none" />
