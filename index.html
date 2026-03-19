@@ -270,11 +270,14 @@
 
     .hero {
       position: relative;
-      padding: 100px 0 180px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
+      padding: 100px 0 160px;
+      display: flex;
+      flex-direction: column;
       align-items: center;
-      gap: 60px;
+      text-align: center;
+      max-width: 900px;
+      margin: 0 auto;
+      gap: 40px;
     }
 
     .hero-content h1 {
@@ -285,6 +288,8 @@
       list-style: none;
       margin-top: 32px;
       margin-bottom: 0;
+      display: inline-block;
+      text-align: left;
     }
 
     /* Hero Background */
@@ -980,19 +985,11 @@
       }
 
       .hero {
-        grid-template-columns: 1fr;
-        text-align: center;
         padding: 300px 0 60px;
-        gap: 40px;
       }
 
       .hero-content h1 {
         min-height: auto;
-      }
-
-      .hero-list {
-        display: inline-block;
-        text-align: left;
       }
 
             .hero-image-placeholder {
@@ -1215,18 +1212,19 @@
               <path d="M17 8.5L10.5 15.5L7 12" stroke="#060c18" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
             </svg> Bônus exclusivos inclusos</li>
         </ul>
-      </div>
-      <div class="hero-visual">
-        <div class="hero-image-placeholder">
-          <img src="assets/img/CARTEIRA.png" alt="Mockup Start Cripto" style="width: 100%; height: 100%; object-fit: contain;">
-        </div>
+        </ul>
       </div>
     </header>
   </div>
 
-  <!-- CAIXA BRANCA OVERLAPPING (PROVA SOCIAL) -->
-  <div class="container">
-    <div class="white-overlap-box">
+  <!-- CAIXA BRANCA OVERLAPPING (PROVA SOCIAL) & CARTEIRA -->
+  <div class="container" style="display: flex; flex-direction: column; align-items: center; position: relative; z-index: 10;">
+    <div class="hero-visual" style="max-width: 600px; width: 100%; margin-top: -100px; margin-bottom: 40px;">
+      <div class="hero-image-placeholder" style="max-width: 100%;">
+        <img src="assets/img/CARTEIRA.png" alt="Mockup Start Cripto" style="width: 100%; height: 100%; object-fit: contain;">
+      </div>
+    </div>
+    <div class="white-overlap-box" style="margin-top: 0; width: 100%;">
       <h2>Veja o que os nossos alunos estão falando:</h2>
       <p class="subtitle">Depoimentos de quem já começou no cripto com nosso método.</p>
 
