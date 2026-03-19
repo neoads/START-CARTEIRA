@@ -272,6 +272,32 @@
       gap: 60px;
     }
 
+    /* Hero Background */
+    .hero-bg-wrapper {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      z-index: -2;
+      overflow: hidden;
+    }
+
+    .hero-bg-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+    }
+
+    .hero-bg-wrapper .hero-bg-desktop {
+      display: block;
+    }
+
+    .hero-bg-wrapper .hero-bg-mobile {
+      display: none;
+    }
+
     .hero-tag {
       display: inline-block;
       font-size: 12px;
@@ -936,6 +962,14 @@
 
     /* ── RESPONSIVIDADE ── */
     @media (max-width: 900px) {
+      .hero-bg-wrapper .hero-bg-desktop {
+        display: none;
+      }
+
+      .hero-bg-wrapper .hero-bg-mobile {
+        display: block;
+      }
+
       .hero {
         grid-template-columns: 1fr;
         text-align: center;
@@ -1013,10 +1047,8 @@
 
     /* ── BORDER BEAM (removido conforme solicitado) ── */
     .hero-list li svg, .offer-list-check li svg {
-      background: rgba(96, 165, 250, 0.15);
       border-radius: 50%;
-      padding: 3px;
-      box-shadow: 0 0 10px rgba(96, 165, 250, 0.2);
+      padding: 0;
     }
 
     /* ── TYPEWRITER CURSOR ── */
@@ -1110,6 +1142,12 @@
 
   <div class="bg-glow-1"></div>
   <div class="bg-glow-2"></div>
+
+  <!-- HERO BACKGROUND IMAGE -->
+  <div class="hero-bg-wrapper">
+    <img src="https://startglobal-sage.vercel.app/BG-PG-Hero.png" alt="" class="hero-bg-desktop">
+    <img src="https://startglobal-sage.vercel.app/hero-mobile-1.png" alt="" class="hero-bg-mobile">
+  </div>
 
   <!-- AVISO TOPO -->
   <div class="top-bar">Oferta por tempo limitado</div>
