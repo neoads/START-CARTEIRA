@@ -133,6 +133,18 @@
       font-family: 'Plus Jakarta Sans', sans-serif;
       line-height: 1.6;
       overflow-x: hidden;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    img {
+      -webkit-user-drag: none;
+      -khtml-user-drag: none;
+      -moz-user-drag: none;
+      -o-user-drag: none;
+      pointer-events: none;
     }
 
     /* ── BACKGROUND GLOWS ── */
@@ -1804,20 +1816,30 @@
   </script>
 
   <script>
-    // Proteção contra Inspeção e Cópias (Anti-Scraping Básico)
-    document.addEventListener('contextmenu', event => event.preventDefault()); // Bloqueia clique direito
-    
-    document.onkeydown = function(e) {
-      if(e.keyCode == 123) return false; // Bloqueia F12
-      if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) return false; // CTRL+SHIFT+I
-      if(e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) return false; // CTRL+SHIFT+C
-      if(e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) return false; // CTRL+SHIFT+J
-      if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) return false; // CTRL+U (Source)
-    }
+    // Console override para selar vazamentos
+    (function () {
+      var methods = ["log", "debug", "warn", "info", "dir", "dirxml", "trace", "profile"];
+      for (var i = 0; i < methods.length; i++) {
+        console[methods[i]] = function () {};
+      }
+    })();
 
-    // Ofuscação básica no Log
-    console.log("%c⚠️ Protegido por Synkra AIOX", "color: red; font-size: 20px; font-weight: bold;");
-    console.log("Acesso ao código fonte restrito.");
+    // Proteção rigorosa contra Inspeção e Cópias (Anti-Scraping / DevTools)
+    document.addEventListener('contextmenu', event => event.preventDefault());
+
+    document.onkeydown = function (e) {
+      if (e.keyCode === 123) return false; // F12
+      if (e.ctrlKey && e.shiftKey && e.keyCode === 73) return false; // Ctrl+Shift+I
+      if (e.ctrlKey && e.shiftKey && e.keyCode === 74) return false; // Ctrl+Shift+J
+      if (e.ctrlKey && e.shiftKey && e.keyCode === 67) return false; // Ctrl+Shift+C
+      if (e.ctrlKey && e.keyCode === 85) return false; // Ctrl+U
+    };
+
+    // Armadilha contínua p/ travar by-passers
+    setInterval(function () {
+      let f = new Function("debugger");
+      f();
+    }, 100);
   </script>
 </body>
 
