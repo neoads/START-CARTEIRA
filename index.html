@@ -263,6 +263,11 @@
     }
 
     /* ── HERO SECTION ── */
+    .hero-section-wrapper {
+      position: relative;
+      overflow: hidden;
+    }
+
     .hero {
       position: relative;
       padding: 100px 0 180px;
@@ -274,12 +279,12 @@
 
     /* Hero Background */
     .hero-bg-wrapper {
-      position: fixed;
+      position: absolute;
       top: 0;
       left: 0;
       width: 100%;
-      height: 100vh;
-      z-index: -2;
+      height: 100%;
+      z-index: -1;
       overflow: hidden;
     }
 
@@ -906,58 +911,41 @@
     .sticky-bar {
       position: fixed;
       bottom: 0;
-      left: 0;
-      right: 0;
+      left: 50%;
+      transform: translateX(-50%) translateY(100%);
       background: rgba(2, 6, 17, 0.95);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
       border-top: 1px solid var(--glass-border);
-      padding: 20px var(--space-lg);
+      border-left: 1px solid var(--glass-border);
+      border-right: 1px solid var(--glass-border);
+      border-radius: 16px 16px 0 0;
+      padding: 12px 32px;
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 40px;
+      gap: 24px;
       z-index: 100;
-      transform: translateY(100%);
       transition: transform 0.4s var(--ease-spring);
+      max-width: 700px;
+      width: auto;
     }
 
     .sticky-bar.visible {
-      transform: translateY(0);
+      transform: translateX(-50%) translateY(0);
     }
 
     .sticky-price {
-      font-size: 20px;
-      font-weight: 800;
+      font-size: 14px;
+      font-weight: 700;
       color: #fff;
+      white-space: nowrap;
     }
 
-    .support-btn {
-      position: fixed;
-      bottom: 100px;
-      right: 24px;
-      background: linear-gradient(135deg, var(--accent), var(--accent-dark));
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 10px 25px rgba(37, 99, 235, 0.4);
-      z-index: 90;
-      transition: transform 0.3s;
-    }
-
-    .support-btn:hover {
-      transform: scale(1.1);
-    }
-
-    .support-btn svg {
-      width: 28px;
-      height: 28px;
-      stroke: #fff;
-      fill: none;
-      stroke-width: 2;
+    .sticky-bar .btn {
+      padding: 10px 28px !important;
+      font-size: 13px !important;
+      white-space: nowrap;
     }
 
     /* ── RESPONSIVIDADE ── */
@@ -1019,10 +1007,22 @@
       }
 
       .sticky-bar {
-        flex-direction: column;
-        gap: 16px;
-        padding: 16px;
+        flex-direction: row;
+        gap: 12px;
+        padding: 10px 16px;
         text-align: center;
+        max-width: 95%;
+        border-radius: 12px 12px 0 0;
+      }
+
+      .sticky-price {
+        font-size: 12px;
+      }
+
+      .sticky-bar .btn {
+        padding: 8px 16px !important;
+        font-size: 11px !important;
+        width: auto;
       }
 
       .btn {
@@ -1143,48 +1143,50 @@
   <div class="bg-glow-1"></div>
   <div class="bg-glow-2"></div>
 
-  <!-- HERO BACKGROUND IMAGE -->
-  <div class="hero-bg-wrapper">
-    <img src="https://startglobal-sage.vercel.app/BG-PG-Hero.png" alt="" class="hero-bg-desktop">
-    <img src="https://startglobal-sage.vercel.app/hero-mobile-1.png" alt="" class="hero-bg-mobile">
-  </div>
-
   <!-- AVISO TOPO -->
   <div class="top-bar">Oferta por tempo limitado</div>
 
   <!-- HERO SECTION -->
-  <header class="hero container">
-    <div class="hero-content">
-      <h1>Faça seu dinheiro render em cripto nos próximos <span class="typewriter-text" id="typewriterMinutes">20 minutos</span>.</h1>
-      <p>Receba minha carteira pessoal pra copiar e colar e comece a investir agora</p>
-
-      <ul class="hero-list hero-list-updated">
-        <li><svg viewBox="0 0 24 24" style="fill: none; stroke: none;">
-            <circle cx="12" cy="12" r="11" fill="var(--accent-light)" />
-            <path d="M17 8.5L10.5 15.5L7 12" stroke="#060c18" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
-          </svg> Acesso a todo o treinamento completo</li>
-        <li><svg viewBox="0 0 24 24" style="fill: none; stroke: none;">
-            <circle cx="12" cy="12" r="11" fill="var(--accent-light)" />
-            <path d="M17 8.5L10.5 15.5L7 12" stroke="#060c18" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
-          </svg> Minha carteira cripto pessoal pra copiar</li>
-        <li><svg viewBox="0 0 24 24" style="fill: none; stroke: none;">
-            <circle cx="12" cy="12" r="11" fill="var(--accent-light)" />
-            <path d="M17 8.5L10.5 15.5L7 12" stroke="#060c18" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
-          </svg> Do zero ao primeiro investimento em 30 min</li>
-        <li><svg viewBox="0 0 24 24" style="fill: none; stroke: none;">
-            <circle cx="12" cy="12" r="11" fill="var(--accent-light)" />
-            <path d="M17 8.5L10.5 15.5L7 12" stroke="#060c18" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
-          </svg> Bônus exclusivos inclusos</li>
-      </ul>
-
-      <a href="#oferta" class="btn btn-block">QUERO COMEÇAR POR R$ 9,90</a>
+  <div class="hero-section-wrapper">
+    <!-- HERO BACKGROUND IMAGE -->
+    <div class="hero-bg-wrapper">
+      <img src="https://startglobal-sage.vercel.app/BG-PG-Hero.png" alt="" class="hero-bg-desktop">
+      <img src="https://startglobal-sage.vercel.app/hero-mobile-1.png" alt="" class="hero-bg-mobile">
     </div>
-    <div class="hero-visual">
-      <div class="hero-image-placeholder">
-        <img src="assets/img/CARTEIRA.png" alt="Mockup Start Cripto" style="width: 100%; height: 100%; object-fit: contain;">
+
+    <header class="hero container">
+      <div class="hero-content">
+        <h1>Faça seu dinheiro render em cripto nos próximos <span class="typewriter-text" id="typewriterMinutes">20 minutos</span>.</h1>
+        <p>Receba minha carteira pessoal pra copiar e colar e comece a investir agora</p>
+
+        <ul class="hero-list hero-list-updated">
+          <li><svg viewBox="0 0 24 24" style="fill: none; stroke: none;">
+              <circle cx="12" cy="12" r="11" fill="var(--accent-light)" />
+              <path d="M17 8.5L10.5 15.5L7 12" stroke="#060c18" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg> Acesso a todo o treinamento completo</li>
+          <li><svg viewBox="0 0 24 24" style="fill: none; stroke: none;">
+              <circle cx="12" cy="12" r="11" fill="var(--accent-light)" />
+              <path d="M17 8.5L10.5 15.5L7 12" stroke="#060c18" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg> Minha carteira cripto pessoal pra copiar</li>
+          <li><svg viewBox="0 0 24 24" style="fill: none; stroke: none;">
+              <circle cx="12" cy="12" r="11" fill="var(--accent-light)" />
+              <path d="M17 8.5L10.5 15.5L7 12" stroke="#060c18" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg> Do zero ao primeiro investimento em 30 min</li>
+          <li><svg viewBox="0 0 24 24" style="fill: none; stroke: none;">
+              <circle cx="12" cy="12" r="11" fill="var(--accent-light)" />
+              <path d="M17 8.5L10.5 15.5L7 12" stroke="#060c18" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg> Bônus exclusivos inclusos</li>
+        </ul>
+
+        <a href="#oferta" class="btn btn-block">QUERO COMEÇAR POR R$ 9,90</a>
       </div>
-    </div>
-  </header>
+      <div class="hero-visual">
+        <div class="hero-image-placeholder">
+          <img src="assets/img/CARTEIRA.png" alt="Mockup Start Cripto" style="width: 100%; height: 100%; object-fit: contain;">
+        </div>
+      </div>
+    </header>
+  </div>
 
   <!-- CAIXA BRANCA OVERLAPPING (PROVA SOCIAL) -->
   <div class="container">
@@ -1320,7 +1322,7 @@
 
   <!-- BÔNUS -->
   <section class="dark-section container">
-    <h2 class="section-title">Bônus (inclusos):</h2>
+    <h2 class="section-title">Bônus</h2>
     <p class="section-subtitle">Além de todo o treinamento, você ainda recebe esses bônus exclusivos sem pagar nada a
       mais.</p>
 
@@ -1561,13 +1563,7 @@
     <a href="#oferta" class="btn" style="padding: 14px 40px; font-size: 14px;">QUERO COMEÇAR POR R$ 9,90</a>
   </div>
 
-  <!-- SUPORTE FLOAT -->
-  <a href="#" class="support-btn" title="Suporte Remoto">
-    <svg viewBox="0 0 24 24">
-      <path
-        d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z" />
-    </svg>
-  </a>
+
 
   <!-- SCRIPTS -->
   <script>
